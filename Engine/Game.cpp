@@ -150,4 +150,5 @@ void Game::ComposeFrame()
 		SpriteCodex::DrawGameOver(350,280,gfx);
 	}
 	//This is a test change to test different branches
+	//NewComment to check for changes in commits
 }
