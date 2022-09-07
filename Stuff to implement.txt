@@ -1,0 +1,6 @@
+Board class:
+1- Dimension of each cell and the width, height of the playing field 
+2- Draw each cell with dimension and color
+
+Location struct:
+1- int for x, y
