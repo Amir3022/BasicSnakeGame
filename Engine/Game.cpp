@@ -66,6 +66,7 @@ void Game::UpdateModel()
 			delta_loc = { 1,0 };
 		}
 		moveCounter += dt*velocity;
+		velocity += 0.2f * dt;
 
 		if (moveCounter >= 1)
 		{
@@ -101,7 +102,7 @@ void Game::UpdateModel()
 						{
 							moveRate = 5;
 						}*/
-						velocity += 2.0f;
+						//velocity += 2.0f;
 						obstacles[nObstacles].setBorder(brd);
 						obstacles[nObstacles].Spawn(rng, brd, snake,goal.getLoc());
 						nObstacles++;
