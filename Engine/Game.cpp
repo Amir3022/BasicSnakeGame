@@ -46,6 +46,7 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	dt = ft.getDeltaSeconds();
 	if (!bGameOver && bGameStarted)
 	{
 		if (wnd.kbd.KeyIsPressed(VK_UP))
@@ -64,9 +65,9 @@ void Game::UpdateModel()
 		{
 			delta_loc = { 1,0 };
 		}
-		moveCounter++;
+		moveCounter += dt*velocity;
 
-		if (moveCounter >= moveRate)
+		if (moveCounter >= 1)
 		{
 			bool bCollideWithObstalces = false;
 			for (int i = 0; i < nObstacles; i++)
@@ -95,11 +96,12 @@ void Game::UpdateModel()
 					score++;
 					if (score % 5 == 0)
 					{
-						moveRate -= 2;
+						/*moveRate -= 2;
 						if (moveRate < 5)
 						{
 							moveRate = 5;
-						}
+						}*/
+						velocity += 2.0f;
 						obstacles[nObstacles].setBorder(brd);
 						obstacles[nObstacles].Spawn(rng, brd, snake,goal.getLoc());
 						nObstacles++;

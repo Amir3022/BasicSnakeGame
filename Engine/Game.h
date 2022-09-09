@@ -29,6 +29,7 @@
 #include "Snake.h"
 #include "Goal.h"
 #include "Obstacle.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -57,8 +58,11 @@ private:
 	Obstacle obstacles[10];
 	bool bEating = false;
 	int moveRate = 15;
-	int moveCounter = 0;
+	float moveCounter = 0.0f;
+	float velocity = 10.0f;
 	Location delta_loc = { 0,0 };
+	FrameTimer ft;
+	float dt;
 	bool bGameOver = false;
 	bool bGameStarted = false;
 	int score = 0;
